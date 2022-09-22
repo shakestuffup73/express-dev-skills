@@ -1,8 +1,15 @@
-import { skill } from '../models/skill.js'
+import { Skill } from '../models/skill.js'
 
 function index (req, res) {
-  res.render('skills/index', {
-    skills: skills
+  Skill.find({})
+  .then (skills => {
+    res.render('skills/index', {
+      skills: skills
+    })
+  })
+  .catch (error => {
+    console.log(error)
+    res.redirect('/')
   })
 }
 
