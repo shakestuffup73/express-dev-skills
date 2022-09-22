@@ -44,7 +44,7 @@ function show (req, res) {
 }
 
 function deleteSkill (req, res) {
-  Skill.findOneAndDelete(req.params.id)
+  Skill.findByIdAndDelete(req.params.id)
   .then (skill => {
     res.redirect('/skills')
   })
