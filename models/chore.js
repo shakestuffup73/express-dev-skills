@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const choreSchema = new Schema ({
-  chore: String,
+  name: String,
   done: Boolean,
 })
 

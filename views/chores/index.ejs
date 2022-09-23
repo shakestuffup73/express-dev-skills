@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <title>Document</title>
 </head>
 <body>
@@ -11,17 +12,19 @@
   <ul>
     <h1>Chores as of <%= time %></h1>
     <ul>
-      <% chores.forEach(chore=> { %>
+      <% chores.forEach(chore => { %>
         <li>
-          <form action="/choress/<%= chore._id %>?_method=DELETE" class="delete-form" method="POST">
+          <form action="/chores/<%= chore._id %>?_method=DELETE" class="delete-form" method="POST">
             <button type="submit">X</button>
           </form>
-          <a href="/chores/<%= chore._id %>">
-            <%= chore.text %>
+          <a href="/chores/<%= chore._id %>"><%= chore.name %>
           </a>
+          -
+        <%= chore.done ? 'Yes' : 'No' %>
         </li>
         <% }) %>
-          <a href="/chores/new">Add New Chore</a>
-          <a href="/">Go Back</a>
+    </ul>
+      <a href="/chores/new">Add New Chore</a>
+      <a href="/">Go Back</a>
 </body>
 </html>

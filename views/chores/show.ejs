@@ -8,10 +8,12 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>New Chores</h1>
-  <form action="/chores" method="POST" autocomplete="off">
-    <input type="text" name="text">
-    <button type="submit">Save Chore</button>
-  </form>
+  <h1>Chores</h1>
+  <h2>Chore #<%= chore._id %></h2>
+  <h3><%= chore.text %></h3>
+  <p>Done?: <%= chore.done ? 'Yes' : 'No' %></p>
+	<a href="/chores">Go Back</a>
+  <a href="/chores/<%= chore._id %>/edit">Edit Chore</a>
+  <h2>Chore # <%= chore._id %> </h2>
 </body>
 </html>

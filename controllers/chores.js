@@ -20,7 +20,7 @@ function newChore (req, res) {
 }
 
 function create (req, res) {
-  console.log(req.body)
+  console.log('this is a console log!!!!', req.body)
   Chore.create(req.body)
   .then(chore => {
     res.redirect('/chores')
@@ -31,14 +31,14 @@ function create (req, res) {
   })
 }
 
-
-function show (req, res) {
+function show(req, res) {
+  console.log('this is the id of the chore', req.params.id)
   Chore.findById(req.params.id)
-    .then(chore => {
-      res.render('chores/show', {
-        chore: chore
-      })
+  .then(chore => {
+    res.render('chores/show', {
+      chore: chore
     })
+  })
   .catch(error => {
     console.log(error)
     res.redirect('/chores')
@@ -48,11 +48,9 @@ function show (req, res) {
 
 
 
-
-
-
 export {
   index,
   newChore as new,
-  create
+  create,
+  show
 }
