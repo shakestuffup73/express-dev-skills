@@ -2,7 +2,6 @@ import { Chore } from '../models/chore.js'
 
 
 function index (req, res) {
-  res.send('this is the chores page')
   Chore.find({})
   .then (chores => {
     res.render('chores/index', {
@@ -16,7 +15,44 @@ function index (req, res) {
   })
 }
 
+function newChore (req, res) {
+  res.render('chores/new')
+}
+
+function create (req, res) {
+  console.log(req.body)
+  Chore.create(req.body)
+  .then(chore => {
+    res.redirect('/chores')
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/chores')
+  })
+}
+
+
+function show (req, res) {
+  Chore.findById(req.params.id)
+    .then(chore => {
+      res.render('chores/show', {
+        chore: chore
+      })
+    })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/chores')
+  })
+}
+
+
+
+
+
+
 
 export {
-  index
+  index,
+  newChore as new,
+  create
 }

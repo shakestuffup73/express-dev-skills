@@ -37,10 +37,10 @@ function show(req, res) {
         skill: skill
       })
     })
-    .catch(error => {
-      console.log(error)
-      res.redirect('/skills')
-    })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
 }
 
 function deleteSkill(req, res) {

@@ -8,5 +8,20 @@
 </head>
 <body>
   <h1>...Do ya chores ya filthy animal</h1>
+  <ul>
+    <h1>Chores as of <%= time %></h1>
+    <ul>
+      <% chores.forEach(chore=> { %>
+        <li>
+          <form action="/choress/<%= chore._id %>?_method=DELETE" class="delete-form" method="POST">
+            <button type="submit">X</button>
+          </form>
+          <a href="/chores/<%= chore._id %>">
+            <%= chore.text %>
+          </a>
+        </li>
+        <% }) %>
+          <a href="/chores/new">Add New Chore</a>
+          <a href="/">Go Back</a>
 </body>
 </html>

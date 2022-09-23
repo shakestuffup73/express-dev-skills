@@ -6,7 +6,12 @@ const router = Router ()
 // GET ROUTER LISTING
 
 router.get('/', choresCtrl.index)
+router.get('/new', choresCtrl.new)
+router.get('/:id', choresCtrl.show)
 
+// POST ROUTER LISTING
+
+router.post('/', choresCtrl.create)
 
 
 export {
