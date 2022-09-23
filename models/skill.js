@@ -2,9 +2,9 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const skillSchema = new Schema ({
+const skillSchema = new Schema({
   text: String,
-  outdoors: Boolean,
+  done: Boolean,
 })
 
 const Skill = mongoose.model('Skill', skillSchema)
