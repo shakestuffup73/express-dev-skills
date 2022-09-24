@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1> Editing <%= chore.name %> </h1>
+  <%= chore.text %>
+    <form action="/chores/<%= chore._id %>?_method=PUT" method="post" autocomplete="off">
+      <input type="text" name="name" value="<%= chore.text %>">
+      <input type="checkbox" name="done" <%= chore.done ? 'checked' : '' %> >
+      <button type="submit">Update Chore</button>
+      <a href="/chores/<%= chore._id %>">Go Back</a>
+    </form>
+</body>
+
+</html>

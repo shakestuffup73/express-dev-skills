@@ -45,13 +45,13 @@ function show(req, res) {
 
 function deleteSkill(req, res) {
   Skill.findByIdAndDelete(req.params.id)
-    .then(skill => {
-      res.redirect('/skills')
-    })
-    .catch(error => {
-      console.log(error)
-      res.redirect('/skills')
-    })
+  .then(skill => {
+    res.redirect('/skills')
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
 }
 
 function edit(req, res) {
@@ -70,13 +70,13 @@ function edit(req, res) {
 function update(req, res) {
   req.body.done = !!req.body.done
   Skill.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then(skill => {
-      res.redirect(`/skills/${skill._id}`)
-    })
-    .catch(error => {
-      console.log(error)
-      res.redirect('/skills')
-    })
+  .then(skill => {
+    res.redirect(`/skills/${skill._id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
 }
 
 

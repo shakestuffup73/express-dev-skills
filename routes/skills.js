@@ -3,7 +3,7 @@ import * as skillsCtrl from '../controllers/skills.js'
 
 const router = Router()
 
-/* GET  */   
+/* GET router */   
 
 router.get('/', skillsCtrl.index)
 router.get('/new', skillsCtrl.new)

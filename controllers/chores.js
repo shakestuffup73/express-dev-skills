@@ -45,12 +45,51 @@ function show(req, res) {
   })
 }
 
+function deleteChore (req, res) {
+  console.log('I am deleting a chore!')
+  Chore.findByIdAndDelete(req.params.id)
+  .then(chore => {
+    res.redirect('/chores')
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/chores')
+  })
+}
 
+function edit (req, res) {
+  console.log('I am editing a chore!')
+  Chore.findById(req.params.id)
+  .then(foundChore => {
+    res.render('chores/edit', {
+      chore: foundChore
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/chores')
+  })
+}
+
+function update (req, res) {
+  req.body.done = !!req.body.done
+  Chore.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  .then(chore => {
+    res.redirect(`/chores/${chore._id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/chores')
+  })
+}
 
 
 export {
   index,
   newChore as new,
   create,
-  show
+  show,
+  deleteChore as delete,
+  edit,
+  update
 }
